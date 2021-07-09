@@ -188,8 +188,8 @@ const describeFields = (name, structure, combineReducers, setup) => {
           foo: ''
         }
       })
-      expect(props1.foo.meta.pristine).toBe(false)
-      expect(props1.foo.meta.dirty).toBe(true)
+      expect(props1.foo.meta.pristine).toBe(true)
+      expect(props1.foo.meta.dirty).toBe(false)
       const props2 = testProps({
         initial: {
           foo: ''
@@ -499,9 +499,9 @@ const describeFields = (name, structure, combineReducers, setup) => {
         </Provider>
       )
       expect(input).toHaveBeenCalled()
-      expect(input).toHaveBeenCalledTimes(2)
-      expect(input.mock.calls[1][0].foo.input.value).toBe('fooValue')
-      expect(input.mock.calls[1][0].bar.input.value).toBe('barValue')
+      expect(input).toHaveBeenCalledTimes(1)
+      expect(input.mock.calls[0][0].foo.input.value).toBe('fooValue')
+      expect(input.mock.calls[0][0].bar.input.value).toBe('barValue')
     })
 
     it('should provide sync error for array field', () => {

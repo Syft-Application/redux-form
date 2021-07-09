@@ -301,7 +301,7 @@ function createConnectedField<L, M>(structure: Structure<L, M>) {
       const initialState = getIn(formState, `initial.${name}`)
       const initial =
         initialState !== undefined ? initialState : initialValues && getIn(initialValues, name)
-      const value = getIn(formState, `values.${name}`)
+      const value = formState ? getIn(formState, `values.${name}`) : initial
       const submitting = getIn(formState, 'submitting')
       const syncError = getSyncError(getIn(formState, 'syncErrors'), name)
       const syncWarning = getSyncWarning(getIn(formState, 'syncWarnings'), name)

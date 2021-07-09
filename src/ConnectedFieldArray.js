@@ -137,7 +137,7 @@ export default function createConnectedFieldArray(structure: Structure<any, any>
       const formState = getFormState(state)
       const initial =
         getIn(formState, `initial.${name}`) || (initialValues && getIn(initialValues, name))
-      const value = getIn(formState, `values.${name}`)
+      const value = getIn(formState, `values.${name}`) || initial
       const submitting = getIn(formState, 'submitting')
       const syncError = getSyncError(getIn(formState, 'syncErrors'), name)
       const syncWarning = getSyncWarning(getIn(formState, 'syncWarnings'), name)

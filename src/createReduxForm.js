@@ -928,9 +928,9 @@ export default function createReduxForm(structure: Structure<any, any>) {
 
           let initial = initialValues || stateInitial || empty
 
-          if (!shouldUpdateInitialValues) {
-            initial = stateInitial || empty
-          }
+          // if (!shouldUpdateInitialValues) {
+          //   initial = stateInitial || empty
+          // }
 
           let values = getIn(formState, 'values') || initial
 
